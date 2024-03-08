@@ -1,7 +1,6 @@
-"""
-Dice Class
-
-This class represents a dice in the game. It provides a method to display the visual representation of a dice roll.
+"""Dice Class."""
+"""This class represents a dice in the game. It provides a method to display
+    the visual representation of a dice roll.
 
 Methods:
 - display_dice(num): Returns the visual representation of the given dice roll.

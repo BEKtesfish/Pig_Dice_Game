@@ -28,7 +28,7 @@ class Test_player(unittest.TestCase):
         self.assertEqual(name, player_name)
 
     def test_beginning_score_zero(self):
-        """Test case for verifying that the player's score is zero at the beginning."""
+        """Test case for verifying that the player's score is zero."""
         player1 = Player("sham")
         starting_score = 0
         player_starting_score = player1.get_score()
@@ -62,10 +62,3 @@ class Test_player(unittest.TestCase):
         player1 = Player("sham")
         player1.game_won = 1
         self.assertEqual(player1.get_game_won(), 1)
-
-
-        
-    
-    
-
-

@@ -60,16 +60,16 @@ class Game:
                                 self.multiplay_change_name()
                             elif choice2 == '3':
                                 if self.game_played != 0:
-                                    Save().save(self.player1, self.player2, self.game_played)
-                                    self.game_played = 0              
-                                break
+                                    Save().save(self.player1, self.player2,
+                                                self.game_played)
+                                    self.game_played = 0
+                                    break
                             else:
-                                raise ValueError("\nInvalid input! Enter a number from the listed options.\n ")
+                                raise ValueError(self.invalid_input())
                         except ValueError as e:
                             print(e)
 
                 elif choice == '2':
-                
                     self.player1 = self.set_player_single()
                     self.computer = Computer()
                     self.player_list = [self.player1, self.computer]
@@ -91,17 +91,18 @@ class Game:
                                 self.singleplay_change_name()
                             elif choice2 == '5':
                                 if self.game_played != 0:
-                                    Save().save(self.player1, self.computer, self.game_played)
+                                    Save().save(self.player1, self.computer,
+                                                self.game_played)
                                     self.game_played = 0
                                 break
                             else:
-                                raise ValueError("\nInvalid input! Enter a number from the listed options.\n ")
+                                raise ValueError(self.invalid_input())
                         except ValueError as e:
-                            print(e)    
+                            print(e)
                 elif choice == "3":
                     break
                 else:
-                    raise ValueError("\nInvalid input! Enter a number from the listed options.\n")
+                    raise ValueError(self.invalid_input())
             except ValueError as e:
                 print(e)
 
@@ -120,17 +121,22 @@ class Game:
         while True:
             try:
                 num = self.roll_dice()
-                if self.player1.get_score() <= 100 and self.computer.get_score() <= 100:
+                if (self.player1.get_score() <= 100 and
+                        self.player2.get_score() <= 100):
+
                     current_player = self.player_list[self.index]
-                    print(self.display_dice_current_player(current_player, num))
+                    print(self.display_dice_current_player
+                          (current_player, num))
                     if num != 1:
                         if isinstance(current_player, Computer):
                             choice = mode(self.current_score)
-                            self.computer_game_logic(choice, current_player, num)
+                            self.computer_game_logic
+                            (choice, current_player, num)
+
                         else:
                             self.while_num_not_1(current_player, num)
                     else:
-                        self.when_num_is_one(current_player)                     
+                        self.when_num_is_one(current_player)
                 else:
                     print(self.end_game(self.player1, self.computer))
                     break
@@ -158,6 +164,10 @@ class Game:
             # change player index
             self.player_change()
 
+    def invalid_input(self):
+        """Return a message for all the invalid options."""
+        return "\nInvalid input! Enter a number from the listed options.\n"
+
     def multiplay(self):
         """Handle computer player's game logic."""
         print("\n------------Game Started-------------")
@@ -166,7 +176,8 @@ class Game:
         while True:
             try:
                 num = self.roll_dice()
-                if self.player1.get_score() <= 100 and self.player2.get_score() <= 100:
+                if (self.player1.get_score() <= 100 and
+                        self.player2.get_score() <= 100):
                     self.multiplay_game_logic(num)
                 else:
                     # display the winner
@@ -208,7 +219,7 @@ class Game:
         self.player_change()
         # restart to zero the  current score
         self.set_current_score_zero()
-    
+
     def player_holds(self, current_player, num):
         """
         Handle the situation when a player chooses to hold.
@@ -250,11 +261,11 @@ class Game:
                     self.player_holds(current_player, num)
                     break
                 else:
-                    raise ValueError("\nInvalid input! Enter a number from the listed options.\n ")
+                    raise ValueError(self.invalid_input())
             except ValueError as e:
-                print(e) 
+                print(e)
+
     # display  winner whan the game ends
-                
     def end_game(self, player1, player2):
         """Handle the end of the game and determine the winner.
 
@@ -267,7 +278,7 @@ class Game:
         """
         if player1.get_score() > player2.get_score():
             player1.set_game_won()
-            self.winner = player1.get_name()         
+            self.winner = player1.get_name()
         else:
             player2.set_game_won()
             self.winner = player2.get_name()
@@ -276,10 +287,10 @@ class Game:
 {player1.get_name()} Stats: vs  {player2.get_name()} Stats:
 -------------------------------
 Score: {player1.get_score():<15}Score: {player2.get_score()}
-Rolls: {player1.get_num_rolls():<15}Rolls: {player2.get_num_rolls()}         
+Rolls: {player1.get_num_rolls():<15}Rolls: {player2.get_num_rolls()}
 Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
 """
-    
+
     # thigs to do when the player rolls one
     def rolled_one(self, current_player):
         """
@@ -289,19 +300,20 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         - current_player (Player): The current player.
 
         Returns:
-        str: A message indicating that the player rolled one and their turn is skipped.
+        str: A message indicating that the player rolled one and their turn is
+        skipped.
         """
-        return f"\n\n'{current_player.get_name()}' rolled 1, Skipping turn.\n\n"
- 
+        return f"\n\n'{current_player.get_name()}' rolled 1, Skipping turn\n\n"
+
     # change player index
     def player_change(self):
         """Change the index to switch between players."""
         self.index = 1 - self.index
-  
+
     def set_current_score_zero(self):
         """Reset the current score to zero."""
         self.current_score = 0
-       
+
     # take the user choice to roll or hold
     def take_choice(self):
         """Take the user's choice to roll or hold."""
@@ -309,7 +321,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         str: The user's choice."""
         choice = input("Hold or roll ('h', 'r','exit'): ")
         return choice
-    
+
     def player_hold(self, current_player, num):
         """Handle the player holding the dice.
 
@@ -324,7 +336,8 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         current_player.set_num_holds()
         self.current_score += num
         current_player.set_score(self.current_score)
-        return f"'{current_player.get_name()}' holds, Overall score: {current_player.get_score()}\n"
+        return (f"'{current_player.get_name()}' holds, "
+                f"Overall score: {current_player.get_score()}\n")
 
     def player_rolled(self, current_player, num):
         """Handle the player rolling the dice."""
@@ -338,7 +351,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         current_player.set_num_rolls()
         self.current_score += num
         return f"""{current_player.get_name()} rolled\n"""
-    
+
     def display_dice_current_player(self, current_player, num):
         """Display the current player's turn and dice roll."""
         """Parameters:
@@ -348,7 +361,9 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         Returns:
         str: A message displaying the current player's turn and dice roll.
         """
-        return f"""Player: '{current_player.get_name()}' is palying\nCurrent score: {self.current_score}\nDice Roll:\n{Dice().display_dice(num)}  roll: {num}"""
+        return (f"Player: '{current_player.get_name()}' is playing\n"
+                f"Current score: {self.current_score}\n"
+                f"Dice Roll:\n{Dice().display_dice(num)}  roll: {num}")
 
     # no unittest
     def multiplay_change_name(self):
@@ -387,13 +402,14 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         """Take user choice menu."""
         choice = input("Enter option: ")
         return choice
-    
+
     def display_multiplay(self):
         """Display the multiplayer mode options."""
         """Returns:
         str: The multiplayer mode options.
         """
-        return """\n-------------------------multiplay---------------------------
+        return """
+\n-------------------------multiplay---------------------------
 \n1. start
 2. change name
 3. go back"""
@@ -405,7 +421,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         """
         name = input("Enter name: ")
         return name
-  
+
     def change_multiplay_name(self):
         """Display for the multiplay change name."""
         return """
@@ -417,7 +433,8 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
 
     def single_game_menu(self):
         """Display for the single game menu."""
-        return """\n------------------------soloplay----------------------------
+        return """
+\n------------------------soloplay----------------------------
 \nChoose game mode:
 1. Easy mode
 2. Medium mode
@@ -430,7 +447,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         print(self.change_single_name())
         name = self.take_choice_name()
         self.player_list[0].set_name(name)
-    
+
     def change_single_name(self):
         """Display the menu for changing single player name."""
         """Returns:
@@ -469,7 +486,4 @@ Player 1:
         Returns:
         str: An introduction to the single player game mode.
         """
-        return f"""
------------------{mode} mode-----------------
-"""
-    
+        return f"""-----------------{mode} mode-----------------"""

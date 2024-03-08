@@ -1,4 +1,6 @@
+"""This modulo has methood for displaying highscore."""
 import json
+
 
 def load_json_data(filename):
     """
@@ -24,7 +26,8 @@ def load_json_data(filename):
         raise ValueError("The JSON file is empty or has invalid JSON data.")
     except IOError:
         raise IOError("An error occurred while reading the JSON file.")
-    
+
+
 def calculate_high_scores(json_data):
     """
     Calculate high scores based on the number of wins for each player.
@@ -33,8 +36,8 @@ def calculate_high_scores(json_data):
     - json_data (dict): The loaded JSON data.
 
     Returns:
-    - list: A sorted list of tuples containing player names and their corresponding win counts,
-            sorted in descending order of wins.
+    - list: A sorted list of tuples containing player names and their
+    corresponding win counts, sorted in descending order of wins.
     """
     player_wins = {}
     if json_data:
@@ -45,7 +48,8 @@ def calculate_high_scores(json_data):
                 if isinstance(player, dict):
                     player_name = player.get('name')
                     won = player.get('won', 0)
-                    player_wins[player_name] = player_wins.get(player_name, 0) + won
+                    player_wins[player_name] = player_wins.get
+                    (player_name, 0) + won
     return sorted(player_wins.items(), key=lambda x: x[1], reverse=True)
 
 
@@ -54,7 +58,8 @@ def generate_high_score_list(sorted_players):
     Generate and display the high score list.
 
     Parameters:
-    - sorted_players (list): A sorted list of tuples containing player names and their corresponding win counts.
+    - sorted_players (list): A sorted list of tuples containing player names
+    and their corresponding win counts.
 
     Returns:
     None
@@ -62,7 +67,7 @@ def generate_high_score_list(sorted_players):
     if sorted_players:
         print(display())
         for rank, (player, wins) in enumerate(sorted_players, start=1):
-            print(display_high_score(rank,player,wins))
+            print(display_high_score(rank, player, wins))
     else:
         print("High Score List:\nEmpty")
 
@@ -72,7 +77,8 @@ def load(filename="game_history.json"):
     Load game history, calculate high scores, and display the high score list.
 
     Parameters:
-    - filename (str): The name of the JSON file to load (default: "game_history.json")
+    - filename (str): The name of the JSON file tos
+    load (default: "game_history.json")
 
     Returns:
     None
@@ -84,7 +90,8 @@ def load(filename="game_history.json"):
     except (FileNotFoundError, ValueError, IOError) as e:
         print(str(e))
 
-def display_high_score(rank,player,wins):
+
+def display_high_score(rank, player, wins):
     """
     Format a single high score entry.
 
@@ -97,6 +104,8 @@ def display_high_score(rank,player,wins):
     - str: The formatted high score entry.
     """
     return f"""    {rank}. {player:<12}: {wins} wins"""
+
+
 def display():
     """
     Generate the header of the high score list.

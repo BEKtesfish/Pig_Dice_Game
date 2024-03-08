@@ -8,10 +8,8 @@ class Save:
     game_history = []
 
     def save(self, player1, player2, played_game, filname="game_history.json"):
-        """
-        Save game history data to a JSON file.
-
-        Parameters:
+        """Save game history data to a JSON file."""
+        """Parameters:
         - player1 (Player): The first player object.
         - player2 (Player): The second player object.
         - played_game (str): how many games played.
@@ -37,9 +35,8 @@ class Save:
             json.dump(Save().game_history, file, indent=4)
 
     def load(self, filname="game_history.json"):
-        """Load game history data from a JSON file.
-
-        - filename (str): The filename to load the data from.
+        """Load game history data from a JSON file."""
+        """- filename (str): The filename to load the data from.
         Default is "game_history.json"."""
         try:
             with open(filname, "r") as file:

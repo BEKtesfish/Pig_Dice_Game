@@ -38,7 +38,7 @@ class Test_computer_player_medium(unittest.TestCase):
         evaluate = computer_player_return_2 is exp1
         self.assertTrue(evaluate)
 
-    def test_medium_mode(self): 
+    def test_medium_mode(self):
         """Test the behavior of medium mode."""
         computer_player = Computer()
         computer_player_return = computer_player.medium_mode(26)
@@ -87,14 +87,3 @@ class Test_computer_player_medium(unittest.TestCase):
         exp = "h"
         evaluate = computer_player_return_4 is exp
         self.assertTrue(evaluate)
-
-        
-       
-
-
-
-        
-
-
-
-
