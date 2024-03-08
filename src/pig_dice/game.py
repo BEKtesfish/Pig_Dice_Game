@@ -229,6 +229,63 @@ class Game:
         #change player index
         self.player_change()
 
+    
+    def while_num_not_1(self,current_player,num):
+        """
+    Handle the situation when the rolled number is not one.
+
+    Parameters:
+    - current_player (Player): The current player.
+    - num (int): The number rolled on the dice.
+
+    Returns:
+    None
+    """
+        while True:
+            try:
+                #thake choice from the user
+                choice=self.take_choice()
+                if choice == "exit":
+                    raise ExitGameException()
+                if choice == 'r':
+                    print(self.player_rolled(current_player,num))
+                    break
+                elif choice == 'h':
+                    self.player_holds(current_player,num)
+                    break
+                else:
+                    raise ValueError("\nInvalid input! Enter a number from the listed options.\n ")
+            except ValueError as e:
+                print(e) 
+    
+    #display  winner whan the game ends
+    def end_game(self,player1,player2):
+        """
+    Handle the end of the game and determine the winner.
+
+    Parameters:
+    - player1 (Player): The first player.
+    - player2 (Player): The second player.
+
+    Returns:
+    str: A message indicating the winner and their stats.
+    """
+        if player1.get_score() > player2.get_score():
+            player1.set_game_won()
+            self.winner=player1.get_name()
+            
+        else:
+            player2.set_game_won()
+            self.winner=player2.get_name()
+        self.game_played+=1
+        return f"""Game over, Winner: {self.winner}
+{player1.get_name()} Stats: vs  {player2.get_name()} Stats:
+-------------------------------
+Score: {player1.get_score():<15}Score: {player2.get_score()}
+Rolls: {player1.get_num_rolls():<15}Rolls: {player2.get_num_rolls()}         
+Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
+"""
+
 
 
             
