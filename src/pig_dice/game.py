@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 import random
 from computer import Computer
 from dice import Dice
