@@ -285,7 +285,43 @@ Score: {player1.get_score():<15}Score: {player2.get_score()}
 Rolls: {player1.get_num_rolls():<15}Rolls: {player2.get_num_rolls()}         
 Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
 """
+    
+    #thigs to do when the player rolls one
+    def rolled_one(self,current_player):
+        """
+    Handle the situation when a player rolls a one.
+
+    Parameters:
+    - current_player (Player): The current player.
+
+    Returns:
+    str: A message indicating that the player rolled one and their turn is skipped.
+    """
+        return f"\n\n'{current_player.get_name()}' rolled 1, Skipping turn.\n\n"
+      
 
 
+    #change player index
+    def player_change(self):
+        """
+    Change the index to switch between players.
+    """
+        self.index=1 - self.index
+    
+    def set_current_score_zero(self):
+        """
+    Reset the current score to zero.
+    """
+        self.current_score=0
+    #take the user choice to roll or hold
+    
+    def take_choice(self):
+        """
+    Take the user's choice to roll or hold.
 
+    Returns:
+    str: The user's choice.
+        """
+        choice=input("Hold or roll ('h', 'r','exit'): ")
+        return choice
             
