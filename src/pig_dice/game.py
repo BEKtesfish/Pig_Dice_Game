@@ -450,4 +450,13 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
 3. Hard mode
 4. Change name
 5. go back"""
+
+
+    def singleplay_change_name(self):
+        """
+    Handle changing player names in single player mode.
+    """
+        print(self.change_single_name())
+        name=self.take_choice_name()
+        self.player_list[0].set_name(name)
     
