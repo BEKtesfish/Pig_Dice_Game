@@ -174,4 +174,23 @@ class Game:
                     break
             except ExitGameException:
                 break
+    
+
+    def multiplay_game_logic(self,num):
+        """
+    Handle the game logic for each turn in a multiplayer game.
+
+    Parameters:
+    - num (int): The number rolled on the dice.
+
+    Returns:
+    None
+    """
+        current_player=self.player_list[self.index]
+        print(self.display_dice_current_player(current_player,num))
+        if num != 1:
+            self.while_num_not_1(current_player,num)
+        else:
+            self.when_num_is_one(current_player)
+
             
