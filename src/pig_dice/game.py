@@ -155,4 +155,23 @@ class Game:
             self.set_current_score_zero()
             #change player index
             self.player_change()
+    
+
+    def multiplay(self):
+        """Handle computer player's game logic."""
+        print("\n------------Game Started-------------")
+        self.player1.new_game()
+        self.player2.new_game()
+        while True:
+            
+            try:
+                num=self.roll_dice()
+                if self.player1.get_score()<=100 and self.player2.get_score() <=100:
+                    self.multiplay_game_logic(num)
+                else:
+                    #display the winner
+                    print(self.end_game(self.player1,self.player2))
+                    break
+            except ExitGameException:
+                break
             
