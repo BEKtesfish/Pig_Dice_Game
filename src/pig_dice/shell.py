@@ -54,6 +54,8 @@ class PigDiceCLI(cmd.Cmd):
         """Welcome cheater."""
         """ Welcome to the world of Pig Dice Cheat Mode,
             where the dice are always on your side!"""
+        print("---Welcome to Pig Dice Cheat Mode,", end="")
+        print(" where the dice are always on your side!---")
         game = Game(cheat=True)
         game.play()
 

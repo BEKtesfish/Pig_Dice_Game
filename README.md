@@ -143,10 +143,23 @@ Follow these steps to set up and play the game:
         - The game continues until one player reaches or exceeds a total score of 100 points.
         - Once a player reaches the winning score, they are declared the winner, and the game ends.
 
-        5. Cheat Mode:
-        - Optionally, players can enable cheat mode where the dice always roll a six. This can be used for testing or
-            fun purposes but should be disabled during regular gameplay.
-        - Note: Type 'cheat' and press Enter to activate cheat mode and start the game.
+        5.Cheat Mode
+
+            In the Pig Dice game, there is a cheat mode available for those who want to have a bit more fun or test their luck! To activate cheat mode:
+
+            1. When starting the game, instead of typing `start`, type `cheat` and press Enter.
+            2. You will see a message confirming that cheat mode has been activated.
+            3. Enjoy the game with the dice always on your side!
+
+            **Example:**
+                Welcome to the Pig Dice game! Type help or ? to list commands.
+                (Pig Dice) cheat
+                ---Welcome to Pig Dice Cheat Mode, where the dice are always on your side!---
+                
+            NOTE: Remember, cheat mode is just for fun and testing purposes. Have a blast!
+
+
+
 
         6. High Score:
         - Players have the option to see the high score.

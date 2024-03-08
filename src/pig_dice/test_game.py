@@ -149,7 +149,6 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         game = Game()
         return_text = game.display()
         text = """
-\n
 1.multiplay
 2.single play
 3.exit

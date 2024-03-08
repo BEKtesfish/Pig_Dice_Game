@@ -6,6 +6,8 @@ from dice import Dice
 from player import Player
 from save import Save
 from exception import ExitGameException
+import os
+import time
 
 
 class Game:
@@ -118,7 +120,9 @@ class Game:
         print("\n------------Game Started-------------")
         self.player1.new_game()
         self.computer.new_game()
+        clear_command = 'cls' if os.name == 'nt' else 'clear'
         while True:
+            os.system(clear_command)
             try:
                 num = self.roll_dice()
                 if (self.player1.get_score() <= 100 and
@@ -131,12 +135,16 @@ class Game:
                         if isinstance(current_player, Computer):
                             choice = mode(self.current_score)
                             self.computer_game_logic(
-                                (choice, current_player, num))
+                                choice, current_player, num
+                                )
+                            time.sleep(1.5)
 
                         else:
                             self.while_num_not_1(current_player, num)
+                            time.sleep(1.5)
                     else:
                         self.when_num_is_one(current_player)
+                        time.sleep(1.5)
                 else:
                     print(self.end_game(self.player1, self.computer))
                     break
@@ -173,12 +181,15 @@ class Game:
         print("\n------------Game Started-------------")
         self.player1.new_game()
         self.player2.new_game()
+        clear_command = 'cls' if os.name == 'nt' else 'clear'
         while True:
+            os.system(clear_command)
             try:
                 num = self.roll_dice()
                 if (self.player1.get_score() <= 100 and
                         self.player2.get_score() <= 100):
                     self.multiplay_game_logic(num)
+                    time.sleep(1)
                 else:
                     # display the winner
                     print(self.end_game(self.player1, self.player2))
@@ -219,6 +230,7 @@ class Game:
         self.player_change()
         # restart to zero the  current score
         self.set_current_score_zero()
+        time.sleep(1.5)
 
     def player_holds(self, current_player, num):
         """
@@ -396,7 +408,6 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         str: The main menu options.
         """
         return """
-\n
 1.multiplay
 2.single play
 3.exit
