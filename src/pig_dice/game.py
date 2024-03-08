@@ -472,4 +472,17 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
 \n------ change name--------
 Player 1:
 """
+
+    def set_player_multi(self):
+        """
+    Set the players for multiplayer mode.
+
+    Returns:
+   the two players.
+    """
+        name1=self.take_choice_name()
+        player1=Player(name1)
+        name2=self.take_choice_name()
+        player2=Player(name2)
+        return player1,player2
     
