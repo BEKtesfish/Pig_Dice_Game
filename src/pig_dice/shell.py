@@ -64,8 +64,3 @@ class PigDiceCLI(cmd.Cmd):
     def do_q(self, _):
         """Alias for 'exit' command."""
         return self.do_exit(_)
-
-
-if __name__ == "__main__":
-    cli = PigDiceCLI()
-    cli.cmdloop()

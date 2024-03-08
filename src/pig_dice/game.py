@@ -63,7 +63,7 @@ class Game:
                                     Save().save(self.player1, self.player2,
                                                 self.game_played)
                                     self.game_played = 0
-                                    break
+                                break
                             else:
                                 raise ValueError(self.invalid_input())
                         except ValueError as e:
@@ -363,7 +363,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         """
         return (f"Player: '{current_player.get_name()}' is playing\n"
                 f"Current score: {self.current_score}\n"
-                f"Dice Roll:\n{Dice().display_dice(num)}  roll: {num}")
+                f"Dice Roll:\n{Dice().display_dice(num)}\nRoll: {num:>10}")
 
     # no unittest
     def multiplay_change_name(self):
