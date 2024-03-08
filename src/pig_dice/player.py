@@ -96,4 +96,39 @@ class Player:
         None
         """
         self.num_rolls+=1
+
+    def get_game_won(self):
+        """
+        Get the number of games won by the player.
+
+        Returns:
+        int: The number of games won by the player.
+        """
+        return self.game_won
+    def set_game_won(self):
+        """
+        Increment the number of games won by the player.
+
+        Returns:
+        None
+        """
+        self.game_won+=1
+        
+    def get_num_holds(self):
+        """
+        Get the number of holds made by the player.
+
+        Returns:
+        int: The number of holds made by the player.
+        """
+        return self.num_holds
+    def set_num_holds(self):
+        """
+        Increment the number of holds made by the player.
+
+        Returns:
+        None
+        """
+        self.num_holds+=1
+
         
