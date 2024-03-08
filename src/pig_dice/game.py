@@ -340,4 +340,32 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         self.current_score+=num
         current_player.set_score(self.current_score)
         return f"'{current_player.get_name()}' holds, Overall score: {current_player.get_score()}\n"
-            
+    
+
+    def player_rolled(self,current_player,num):
+        """
+    Handle the player rolling the dice.
+
+    Parameters:
+    - current_player (Player): The current player.
+    - num (int): The number rolled on the dice.
+
+    Returns:
+    str: A message indicating that the player rolled.
+    """
+        current_player.set_num_rolls()
+        self.current_score+=num
+        return f"""{current_player.get_name()} rolled\n"""
+    
+    def display_dice_current_player(self,current_player,num):
+        """
+    Display the current player's turn and dice roll.
+
+    Parameters:
+    - current_player (Player): The current player.
+    - num (int): The number rolled on the dice.
+
+    Returns:
+    str: A message displaying the current player's turn and dice roll.
+    """
+        return f"""Player: '{current_player.get_name()}' is palying\nCurrent score: {self.current_score}\nDice Roll:\n{Dice().display_dice(num)}  roll: {num}"""
