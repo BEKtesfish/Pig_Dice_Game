@@ -460,3 +460,16 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         name=self.take_choice_name()
         self.player_list[0].set_name(name)
     
+
+    def change_single_name(self):
+        """
+    Display the menu for changing single player name.
+
+    Returns:
+    str: The menu for changing single player name.
+    """
+        return """
+\n------ change name--------
+Player 1:
+"""
+    
