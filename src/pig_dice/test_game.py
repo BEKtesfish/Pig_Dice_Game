@@ -107,8 +107,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         self.assertEqual(player1.num_holds, 1)
         self.assertEqual(game.current_score, num)
         self.assertEqual(player1.get_score(), game.current_score)
-        text = (f"'{player1.get_name()}' holds, "
-                f"Overall score: {player1.get_score()}\n")
+        text = f"'{player1.get_name()}' holds"
         self.assertEqual(return_text, text)
 
     def test_player_rolled(self):
@@ -128,13 +127,21 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         """Unittest for displaying the current player's dice roll and score."""
         game = Game()
         player1 = Player("bereket")
+        player2 = Player("souxie")
         num = 6
         roll = "Roll:"
+        over_all = "Overall score:"
+        game.player_list = [player1, player2]
         return_text = game.display_dice_current_player(player1, num)
-
-        text = (f"Player: '{player1.get_name()}' is playing\n"
+        player_list = [player1, player2]
+        text = (f"Player:'{player1.get_name():>5}' is playing\n"
+                f"{player_list[0].get_name()}: "
+                f"{over_all:<5} {player_list[0].get_score()}\n"
+                f"{player_list[1].get_name()}: "
+                f"{over_all:<5} {player_list[1].get_score()}\n"
                 f"Current score: {game.current_score}\n"
-                f"Dice Roll:\n{Dice().display_dice(num)}\n {roll:>18}{num}")
+                f"Dice Roll:\n{Dice().display_dice(num):>5}\n {roll:>18}{num}")
+
         self.assertEqual(return_text, text)
 
     def test_display(self):

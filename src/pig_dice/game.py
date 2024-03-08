@@ -130,8 +130,8 @@ class Game:
                     if num != 1:
                         if isinstance(current_player, Computer):
                             choice = mode(self.current_score)
-                            self.computer_game_logic
-                            (choice, current_player, num)
+                            self.computer_game_logic(
+                                (choice, current_player, num))
 
                         else:
                             self.while_num_not_1(current_player, num)
@@ -336,8 +336,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         current_player.set_num_holds()
         self.current_score += num
         current_player.set_score(self.current_score)
-        return (f"'{current_player.get_name()}' holds, "
-                f"Overall score: {current_player.get_score()}\n")
+        return f"'{current_player.get_name()}' holds"
 
     def player_rolled(self, current_player, num):
         """Handle the player rolling the dice."""
@@ -361,10 +360,15 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         Returns:
         str: A message displaying the current player's turn and dice roll.
         """
+        over_all = "Overall score:"
         roll = "Roll:"
-        return (f"Player: '{current_player.get_name()}' is playing\n"
+        return (f"Player:'{current_player.get_name():>5}' is playing\n"
+                f"{self.player_list[0].get_name()}: "
+                f"{over_all:<5} {self.player_list[0].get_score()}\n"
+                f"{self.player_list[1].get_name()}: "
+                f"{over_all:<5} {self.player_list[1].get_score()}\n"
                 f"Current score: {self.current_score}\n"
-                f"Dice Roll:\n{Dice().display_dice(num)}\n {roll:>18}{num}")
+                f"Dice Roll:\n{Dice().display_dice(num):>5}\n {roll:>18}{num}")
 
     # no unittest
     def multiplay_change_name(self):

@@ -33,7 +33,7 @@ class Computer(Player):
 
         Sets the name of the computer player to 'computer'.
         """
-        super().__init__("computer")
+        super().__init__("Souxie")
 
     # easy mode
     def easy_mode(self, current_score):
