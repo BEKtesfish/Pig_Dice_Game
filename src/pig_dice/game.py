@@ -100,10 +100,38 @@ class Game:
                     raise ValueError("\nInvalid input! Enter a number from the listed options.\n")
             except ValueError as e:
                             print(e)
+
     def roll_dice(self):
         """Simulate rolling a six-sided dice."""
         if self.cheat:
             return 6
         else:
             return random.randint(1,6)
+    
+
+    def single_game(self,mode):
+        """Start a single-player game."""
+        print("\n------------Game Started-------------")
+        self.player1.new_game()
+        self.computer.new_game()
+        while True:
+            try:
+                num=self.roll_dice()
+                if self.player1.get_score()<=100 and self.computer.get_score() <=100:
+                    current_player=self.player_list[self.index]
+                    print(self.display_dice_current_player(current_player,num))
+                    if num != 1:
+                        if  isinstance(current_player,Computer):
+                            choice=mode(self.current_score)
+                            self.computer_game_logic(choice,current_player,num)
+                        else:
+                            self.while_num_not_1(current_player,num)
+                    else:
+                        self.when_num_is_one(current_player)
+                        
+                else:
+                    print(self.end_game(self.player1,self.computer))
+                    break
+            except ExitGameException:
+                break
     
