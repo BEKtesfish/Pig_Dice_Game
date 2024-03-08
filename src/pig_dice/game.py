@@ -369,3 +369,27 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
     str: A message displaying the current player's turn and dice roll.
     """
         return f"""Player: '{current_player.get_name()}' is palying\nCurrent score: {self.current_score}\nDice Roll:\n{Dice().display_dice(num)}  roll: {num}"""
+
+
+    #no unittest
+    def multiplay_change_name(self):
+        """
+    Handle changing player names in multiplayer mode.
+    """
+        while True:
+            try:
+                print(self.change_multiplay_name())
+                option2=self.take_choice_menu()
+                if option2=="1":
+                    name=self.take_choice_name()
+                    self.player1.set_name(name)
+                elif option2=="2":
+                    name=self.take_choice_name()
+                    self.player2.set_name(name)
+                elif option2 =="3":
+                    break
+                else:
+                    raise ValueError("invalid input.")
+            except ValueError as e:
+                print(f"{e}")
+    
