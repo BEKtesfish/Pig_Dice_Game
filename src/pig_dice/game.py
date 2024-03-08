@@ -361,9 +361,10 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         Returns:
         str: A message displaying the current player's turn and dice roll.
         """
+        roll = "Roll:"
         return (f"Player: '{current_player.get_name()}' is playing\n"
                 f"Current score: {self.current_score}\n"
-                f"Dice Roll:\n{Dice().display_dice(num)}\nRoll: {num:>10}")
+                f"Dice Roll:\n{Dice().display_dice(num)}\n {roll:>18}{num}")
 
     # no unittest
     def multiplay_change_name(self):

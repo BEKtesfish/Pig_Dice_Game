@@ -129,11 +129,12 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         game = Game()
         player1 = Player("bereket")
         num = 6
+        roll = "Roll:"
         return_text = game.display_dice_current_player(player1, num)
 
         text = (f"Player: '{player1.get_name()}' is playing\n"
                 f"Current score: {game.current_score}\n"
-                f"Dice Roll:\n{Dice().display_dice(num)}  roll: {num}")
+                f"Dice Roll:\n{Dice().display_dice(num)}\n {roll:>18}{num}")
         self.assertEqual(return_text, text)
 
     def test_display(self):
