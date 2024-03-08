@@ -7,7 +7,7 @@ You can read about the cmd module in the docs:
     cmd — support for line-oriented command interpreters
     https://docs.python.org/3/library/cmd.html
 """
-
+import os
 import cmd
 from game import *
 import high_score
@@ -19,9 +19,7 @@ class PigDiceCLI(cmd.Cmd):
 
     def __init__(self):
         super().__init__()
-        self.player1 = None
-        self.player2 = None
-        self.game = None
+        
 
     def do_start(self, _):
         """Start"""
@@ -49,8 +47,18 @@ class PigDiceCLI(cmd.Cmd):
         """welcome cheater, Sometimes, a little bit of mischief adds spice to life.
         Welcome to the world of Pig Dice Cheat Mode, 
         where the dice are always on your side!"""
-        game=Game(cheat=True)
+
+        game = Game(cheat=True)
         game.play()
+
+    def do_clear(self, _):
+        """Clear the screen."""
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+
+    
+   
+
     def do_q(self, _):
         """Alias for 'exit' command."""
         return self.do_exit(_)
