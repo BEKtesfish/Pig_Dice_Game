@@ -486,3 +486,14 @@ Player 1:
         player2=Player(name2)
         return player1,player2
     
+    def set_player_single(self):
+        """
+    Set the player for single player mode.
+
+    Returns:
+    Player: The single player.
+    """
+        name1=self.take_choice_name()
+        player1=Player(name1)
+        return player1
+    
