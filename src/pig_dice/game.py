@@ -210,6 +210,25 @@ class Game:
         self.player_change()
         #restart to zero the  current score
         self.set_current_score_zero()
+    
+
+    def player_holds(self,current_player,num):
+        """
+    Handle the situation when a player chooses to hold.
+
+    Parameters:
+    - current_player (Player): The current player.
+    - num (int): The number rolled on the dice.
+
+    Returns:
+    None
+    """
+        print(self.player_hold(current_player,num))
+        #restart to zero the  current score
+        self.set_current_score_zero()
+        #change player index
+        self.player_change()
+
 
 
             
