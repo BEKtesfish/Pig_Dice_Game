@@ -192,5 +192,24 @@ class Game:
             self.while_num_not_1(current_player,num)
         else:
             self.when_num_is_one(current_player)
+    
+
+    def when_num_is_one(self,current_player):
+        """
+    Handle the situation when a player rolls a one.
+
+    Parameters:
+    - current_player (Player): The current player.
+
+    Returns:
+    None
+    """
+        #display rolled one
+        print(self.rolled_one(current_player))
+        #change player index
+        self.player_change()
+        #restart to zero the  current score
+        self.set_current_score_zero()
+
 
             
