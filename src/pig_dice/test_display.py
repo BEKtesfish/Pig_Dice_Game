@@ -1,11 +1,15 @@
 """Unit testing."""
 import unittest
 import display
+
+
 class Display(unittest.TestCase):
    """Unit tests for the display module."""
+
    def test_return(self):
       """Test if the rules function returns the correct text."""
-      test_text="""
+
+      test_text = """
 Pig Dice Game Rules:
 
 Objective:
@@ -56,6 +60,6 @@ Gameplay:
 
 These are the basic rules of the Pig Dice game. Enjoy playing!
 """
-      return_text= display.rules()
-      self.assertEqual(test_text,return_text)
+      return_text = display.rules()
+      self.assertEqual(test_text, return_text)
 

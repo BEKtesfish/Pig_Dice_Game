@@ -1,31 +1,26 @@
+"""Unitt test for save class."""
+
 import unittest
 import json
 from save import Save
 from player import Player
 import os
 
+
 class TestSave(unittest.TestCase):
     """Test cases for the Save class."""
+
     def setUp(self):
         """Set up test environment."""
-      
         self.test_filename = "test_game_history.json"
-       
-     
-       
+
     def tearDown(self):
-        """Tear down test environment."""
-        
+        """Tear down test environment.""" 
         if os.path.exists(self.test_filename):
             os.remove(self.test_filename)
-       
-       
-        
 
     def test_save(self):
-        """Test case for saving game data."""
-
-        
+        """Test case for saving game data."""  
         player1 = Player("Player 1")
         player1.set_game_won()
         player2 = Player("Player 2")
@@ -37,7 +32,6 @@ class TestSave(unittest.TestCase):
         # Call save method
         saver.save(player1, player2, played_game, self.test_filename)
         
-
         # Assert that the file is created and contains the correct data
         self.assertTrue(os.path.exists(self.test_filename))
 

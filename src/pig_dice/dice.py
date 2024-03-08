@@ -7,17 +7,13 @@ Methods:
 - display_dice(num): Returns the visual representation of the given dice roll.
 
 """
+
+
 class Dice:
-    """
-    Dice Class
+    """Dice Class Represents a dice in the game."""
 
-    Represents a dice in the game.
-    """
-
-   
     def display_dice(self, num):
-        """
-        Display Dice Roll.
+        """Display Dice Roll.
 
         Returns the visual representation of the given dice roll.
 
@@ -70,5 +66,4 @@ class Dice:
             │ ●     ● │
             │ ●     ● │
             │ ●     ● │
-            └─────────┘
-            """
+            └─────────┘"""
