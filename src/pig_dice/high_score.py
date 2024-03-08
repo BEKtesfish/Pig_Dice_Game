@@ -48,8 +48,8 @@ def calculate_high_scores(json_data):
                 if isinstance(player, dict):
                     player_name = player.get('name')
                     won = player.get('won', 0)
-                    player_wins[player_name] = player_wins.get
-                    (player_name, 0) + won
+                    player_wins[player_name] = (
+                        player_wins.get(player_name, 0) + won)
     return sorted(player_wins.items(), key=lambda x: x[1], reverse=True)
 
 

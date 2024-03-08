@@ -16,7 +16,7 @@ class Test_high_score(unittest.TestCase):
         data = [{
             "game": {
                 "player 1": {
-                    "name": "bereekt",
+                    "name": "berekt",
                     "won": 1
                 },
                 "player 2": {
@@ -28,7 +28,7 @@ class Test_high_score(unittest.TestCase):
         }]
         # we expect from the calculate_high_score function a list with tuble
         # of player name and there win number
-        data_sorted = [('computer', 7), ('bereekt', 1)]
+        data_sorted = [('computer', 7), ('berekt', 1)]
         high_score_sort = high_score.calculate_high_scores(data)
         self.assertEqual(data_sorted, high_score_sort)
 

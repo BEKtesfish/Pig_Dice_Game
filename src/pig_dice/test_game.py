@@ -75,7 +75,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         game = Game()
         player1 = Player("bereket")
         rolled_1_text = game.rolled_one(player1)
-        text = f"\n\n'{player1.get_name()}' rolled 1, Skipping turn.\n\n"
+        text = f"\n\n'{player1.get_name()}' rolled 1, Skipping turn\n\n"
         self.assertEqual(rolled_1_text, text)
 
     # test player chanege
@@ -190,9 +190,7 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
         game = Game()
         mode = "easy"
         return_text = game.single_game_intro(mode)
-        text = f"""
------------------{mode} mode-----------------
-"""
+        text = f"""-----------------{mode} mode-----------------"""
         self.assertEqual(return_text, text)
 
     def test_set_player_single(self):
