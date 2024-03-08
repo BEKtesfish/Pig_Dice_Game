@@ -392,4 +392,62 @@ Holds: {player1.get_num_holds():<15}Holds: {player2.get_num_holds()}
                     raise ValueError("invalid input.")
             except ValueError as e:
                 print(f"{e}")
+
+    def display(self):
+           """
+    Display the main menu options.
+
+    Returns:
+    str: The main menu options.
+    """
+           return """
+\n
+1.multiplay
+2.single play
+3.exit
+"""
+    #no unittest
+    def take_choice_menu(self):
+        choice=input("Enter option: ")
+        return choice
+    
+
+    def display_multiplay(self):
+        """
+    Display the multiplayer mode options.
+
+    Returns:
+    str: The multiplayer mode options.
+    """
+        return"""\n-------------------------multiplay---------------------------
+\n1. start
+2. change name
+3. go back"""
+
+    
+    def take_choice_name(self):
+        """
+    Take the player's name as input.
+
+    Returns:
+    str: The player's name.
+    """
+        name=input("Enter name: ")
+        return name
+    
+    def change_multiplay_name(self):
+        return """
+\n------ change name--------
+1.To change player 1 name.
+2.To change player 2 name.
+3.Go back\n
+"""
+    def single_game_menu(self):
+        return """\n------------------------soloplay----------------------------
+\nChoose game mode:
+1. Easy mode
+2. Medium mode
+3. Hard mode
+4. Change name
+5. go back"""
     
