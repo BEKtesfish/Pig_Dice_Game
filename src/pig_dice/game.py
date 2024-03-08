@@ -497,3 +497,17 @@ Player 1:
         player1=Player(name1)
         return player1
     
+    def single_game_intro(self,mode):
+        """
+    Introduce the single player game mode.
+
+    Parameters:
+    - mode (str): The mode of the game.
+
+    Returns:
+    str: An introduction to the single player game mode.
+    """
+        return f""" 
+-----------------{mode} mode-----------------
+"""
+    
