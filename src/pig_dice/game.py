@@ -135,3 +135,24 @@ class Game:
             except ExitGameException:
                 break
     
+    
+    def computer_game_logic(self,choice,current_player,num):
+        """
+    Handle the game logic for the computer player's turn.
+
+    Parameters:
+    - choice (str): The computer player's decision to roll ('r') or hold ('h').
+    - current_player (Player): The current player (either the computer or the human player).
+    - num (int): The number rolled on the dice.
+
+    Returns:
+    None
+    """
+        if choice == 'r':
+            print(self.player_rolled(current_player,num))
+        elif choice == 'h':
+            print(self.player_hold(current_player,num))
+            self.set_current_score_zero()
+            #change player index
+            self.player_change()
+            
