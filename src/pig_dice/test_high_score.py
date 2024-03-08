@@ -45,6 +45,5 @@ class Test_high_score(unittest.TestCase):
 
 
 
-if __name__ == '__main__':
-    unittest.main()
+
             
