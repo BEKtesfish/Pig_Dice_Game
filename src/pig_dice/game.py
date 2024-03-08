@@ -33,7 +33,7 @@ class Game:
         self.game_played=0
         self.winner=''
         self.player_list=[]
-        
+
     def play(self):
         """Start the game and handle player interactions."""
         while True:
@@ -100,4 +100,10 @@ class Game:
                     raise ValueError("\nInvalid input! Enter a number from the listed options.\n")
             except ValueError as e:
                             print(e)
+    def roll_dice(self):
+        """Simulate rolling a six-sided dice."""
+        if self.cheat:
+            return 6
+        else:
+            return random.randint(1,6)
     
