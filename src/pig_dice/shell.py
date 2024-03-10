@@ -51,9 +51,7 @@ class PigDiceCLI(cmd.Cmd):
         return self.do_exit(_)
 
     def do_cheat(self, _):
-        """Welcome cheater."""
-        """ Welcome to the world of Pig Dice Cheat Mode,
-            where the dice are always on your side!"""
+        """Welcome cheater this is the cheat mode."""
         print("---Welcome to Pig Dice Cheat Mode,", end="")
         print(" where the dice are always on your side!---")
         game = Game(cheat=True)

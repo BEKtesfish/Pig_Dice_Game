@@ -169,6 +169,30 @@ Follow these steps to set up and play the game:
         - Players can choose from different difficulty levels when playing against the computer, such as Easy, Medium, 
         or Hard. Each difficulty level may alter the computer's strategy or behavior.
 
+        8. computer intelligence.
+            -  we came up to the computer player game stratagy from Wikipedia optimal play stratagy
+            
+            easy mode:
+                    - the computer holds when its current score reachs 20. This strategy has an 8% disadvantage against optimal play.
+
+            medium mode:
+                    - the computer  holds  if current score reaches 25 and the overall score is 0 and 
+                       if the overall score is not 0 it holds when the current score reaches 18
+                    - the computer rolls if current score did not reach 25 and the over all score is 0 and 
+                       if the over all score is not 0 it will roll until the current score reaches 18.
+                    -This has a 3.3% disadvantage against optimal play.
+                    
+
+                    -
+            hard mode:
+                    - the computer holds the  computers overall score is < 71 and current score
+                      is >= 21 or else if computer overall score >=71 and current score
+                      is >= 18.
+                    - the computer rolls if the computer overall score  is  < 71 and current score is <21 
+                      or else if computer score is >= 71 and  current score is < 18.
+                    - this stratagy is that when the computer overall score is lower to take a risk and roll 
+                      until the current score reaches 21 and when the overall score is higher to lower the risk and hold when current score reaches 18
+
         8. Exit:
         - While playing, type 'exit' to terminate and restart the game.
 
