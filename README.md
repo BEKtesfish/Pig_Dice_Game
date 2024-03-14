@@ -1,4 +1,9 @@
+🎲Pig Dice Game🎲
 Welcome to the Pig Dice game!
+
+> [!NOTE]  for Windows Users:
+
+If you encounter the error "'charmap' codec can't encode characters in position 72-82: character maps to <undefined>" while playing the game in the terminal, we recommend trying to play it in VS Code. We've extensively tested the game on various Windows computers, and only one computer faced this problem. However, there's a small chance you could encounter a similar issue. Playing the game in VS Code should resolve any encoding-related issues you may encounter.
 
 ## Introduction
 
