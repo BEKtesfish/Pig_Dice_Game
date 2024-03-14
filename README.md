@@ -1,5 +1,6 @@
 🎲Pig Dice Game🎲
-Welcome to the Pig Dice game!
+
+## Welcome to the Pig Dice game!
 
 > [!NOTE]  for Windows Users:
 
