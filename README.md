@@ -114,7 +114,7 @@ Follow these steps to set up and play the game:
 
 
 
-# Rules of the agme.
+# Rules of the game.
 
         Pig Dice Game Rules:
 
