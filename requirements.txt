@@ -7,7 +7,7 @@ flake8-polyfill
 #metrics.pylint
 pylint
 radon
-
+pytest
 # Code style
 black
 
