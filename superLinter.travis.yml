@@ -1,0 +1,35 @@
+vlanguage: python
+
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9"
+  - "3.9-dev"  # 3.9 development branch
+  - "nightly"  # nightly build
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - make test  # Run tests using Makefile target
+
+matrix:
+  include:
+    - python: "3.8"
+      env: TOXENV=py38
+    - python: "3.9"
+      env: TOXENV=py39
+    - python: "3.9-dev"
+      env: TOXENV=py39-dev
+    - python: "nightly"
+      env: TOXENV=py-nightly
+
+  allow_failures:
+    - python: "nightly"
+
+after_script:
+  - make bandit  # Run Bandit using Makefile target
