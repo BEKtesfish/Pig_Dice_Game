@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Specify the Python version you're using in your project
+
+      - name: Print Python version
+        run: python3 --version
+
+      - name: Check pytest installation
+        run: pytest --version
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run tests
+        run: |
+          /usr/bin/python3 -m pytest
